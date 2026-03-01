@@ -1,5 +1,5 @@
 # Maintainer: Your Name <bongopoyo@proton.me>
-pkgname=ring
+pkgname=ring-bin
 pkgver=0.0.1
 pkgrel=1
 pkgdesc="Ping-like utility written in Rust"
