@@ -1,23 +1,18 @@
 # Maintainer: Your Name <bongopoyo@proton.me>
 pkgname=ring
-pkgver=0.1.0
+pkgver=0.0.1
 pkgrel=1
 pkgdesc="Ping-like utility written in Rust"
 arch=('x86_64')
 url="https://github.com/MHashirShahzad/ring"
-license=('MIT')
+license=('GPL')
 depends=('glibc')
-makedepends=('rust' 'cargo')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/MHashirShahzad/ring/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('SKIP') # replace with actual sha256sum of the tarball
-
-build() {
-    cd "$srcdir/ring-$pkgver"
-    cargo build --release
-}
+source=("https://github.com/mhashirshahzad/ring/releases/download/v$pkgver/ring.tar.gz")
+sha256sums=('208af812b770fe1fcd42be129df09e19c7dfee2e018659cbb0bc013ce150b229')
 
 package() {
-    cd "$srcdir/ring-$pkgver"
-    install -Dm755 target/release/ring "$pkgdir/usr/bin/ring"
-    install -Dm644 README.md "$pkgdir/usr/share/doc/ring/README.md"
+    mkdir -p "$pkgdir/usr/bin"
+
+    install -Dm755 "$srcdir/ring" "$pkgdir/usr/bin/ring"
+
 }
